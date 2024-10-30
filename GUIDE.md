@@ -76,7 +76,7 @@ def run_pipeline(input):
 - organization.name
 
 ### Prefetched Fields
-- prefetched_asset_tags (list of tag objects)
+#### prefetched_asset_tags (list of tag objects)
 - `id` (AutoField) - Primary key
 - `slug` (SlugField) - URL-friendly version of name
 - `name` (CharField) - Tag name
