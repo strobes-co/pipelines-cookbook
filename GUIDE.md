@@ -77,6 +77,11 @@ def run_pipeline(input):
 
 ### Prefetched Fields
 - prefetched_asset_tags (list of tag objects)
+- `id` (AutoField) - Primary key
+- `slug` (SlugField) - URL-friendly version of name
+- `name` (CharField) - Tag name
+- `created` (DateTimeField) - Creation timestamp
+- `updated` (DateTimeField) - Update timestamp
 
 ## Finding (Bug) Attributes
 
