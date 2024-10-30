@@ -128,14 +128,92 @@ def run_pipeline(input):
 - organization.name
 
 ### Prefetched Fields
-- prefetched_cve (list of CVE objects)
-- prefetched_cwe (list of CWE objects)
-- prefetched_finding_tags (list of tag objects)
-- prefetched_assigned_to (list of user objects)
-- prefetched_finding_attachments (list of attachment objects)
-- prefetched_engagements (list of engagement objects)
-- prefetched_nist (list of NIST control objects)
-- prefetched_owasp (list of OWASP category objects)
+
+#### prefetched_cve
+
+- `id` (AutoField) - Primary key
+- `title` (TextField) - Title of the CVE
+- `description` (TextField) - Detailed description of the vulnerability
+- `cvss_v2_data` (JSONField) - CVSS version 2 scoring data
+- `cvss_v3_data` (JSONField) - CVSS version 3 scoring data
+- `cvss` (FloatField) - CVSS score
+- `cve_id` (CharField) - Unique CVE identifier
+- `exploit_available` (BooleanField) - Flag indicating if exploit exists
+- `exploit_info` (JSONField) - Detailed information about available exploits
+- `patch_available` (BooleanField) - Flag indicating if patch exists
+- `patch_info` (JSONField) - Detailed information about available patches
+- `zero_day_available` (BooleanField) - Flag indicating if zero-day exists
+- `is_wormable` (BooleanField) - Flag indicating if vulnerability is wormable
+- `ti_raw_response` (JSONField) - Raw threat intelligence response
+- `nvd_raw_response` (JSONField) - Raw NVD response
+- `summary` (TextField) - Brief summary of the vulnerability
+- `published` (DateTimeField) - Initial publication date
+- `last_modified` (DateTimeField) - Last modification date
+- `last_updated_nvd` (DateTimeField) - Last NVD update timestamp
+- `last_updated_ti` (DateTimeField) - Last threat intelligence update timestamp
+- `trend` (IntegerField) - Trend indicator
+- `source` (CharField) - Source of the CVE information
+- `advisories_seen` (ArrayField) - List of seen advisories
+- `epss_score` (FloatField) - Exploit Prediction Scoring System score
+- `cisa_due_date` (DateField) - CISA remediation due date
+- `created` (DateTimeField) - Record creation timestamp
+- `updated` (DateTimeField) - Record update timestamp
+
+#### prefetched_cwe
+
+- `id` (AutoField) - Primary key
+- `cwe_id` (CharField) - Unique CWE identifier
+- `type` (CharField) - Type of weakness
+- `description` (TextField) - Detailed description of the weakness
+
+#### prefetched_finding_tags
+
+- `id` (AutoField) - Primary key
+- `slug` (SlugField) - URL-friendly version of name
+- `name` (CharField) - Tag name
+- `created` (DateTimeField) - Creation timestamp
+- `updated` (DateTimeField) - Update timestamp
+
+#### prefetched_assigned_to
+
+- `id` (AutoField) - Primary key
+- `username` (CharField) - User's username
+- `email` (EmailField) - User's email address
+- `first_name` (CharField) - User's first name
+- `last_name` (CharField) - User's last name
+
+#### prefetched_finding_attachments
+
+- `id` (AutoField) - Primary key
+- `file` (FileField) - Attached file
+- `name` (CharField) - Name of the attachment
+- `created` (DateTimeField) - Creation timestamp
+
+#### prefetched_engagements
+
+- `id` (AutoField) - Primary key
+- `name` (CharField) - Engagement name
+- `description` (TextField) - Detailed description
+- `start_date` (DateField) - Start date of engagement
+- `end_date` (DateField) - End date of engagement
+
+#### prefetched_nist
+
+- `id` (AutoField) - Primary key
+- `title` (CharField) - Control title
+- `description` (TextField) - Detailed description
+- `summary` (TextField) - Brief summary
+- `nist_id` (CharField) - Unique NIST identifier
+- `reference` (TextField) - Reference information
+- `revision` (IntegerField) - Revision number
+
+#### prefetched_owasp
+
+- `id` (AutoField) - Primary key
+- `title` (CharField) - Category title
+- `year` (IntegerField) - Year of the OWASP category
+- `label` (CharField) - Category label
+
 
 ## Accessing Custom Fields
 
