@@ -442,7 +442,7 @@ Based on cloud_type:
 - `type` (CharField) - Type of weakness
 - `description` (TextField) - Detailed description of the weakness
 
-#### prefetched_bug_tags
+#### prefetched_finding_tags
 
 - `id` (AutoField) - Primary key
 - `slug` (SlugField) - URL-friendly version of name
@@ -458,7 +458,7 @@ Based on cloud_type:
 - `first_name` (CharField) - User's first name
 - `last_name` (CharField) - User's last name
 
-#### prefetched_bug_attachments
+#### prefetched_finding_attachments
 
 - `id` (AutoField) - Primary key
 - `file` (FileField) - Attached file
