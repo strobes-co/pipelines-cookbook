@@ -377,7 +377,7 @@ Access via `input.prefetched_network_bug`:
 - port: Port information
 - cpe: Common Platform Enumeration information
 
-##### Package Findings (bug_level = 4,6)
+##### Package Findings (bug_level = 6)
 Access via `input.prefetched_package_bug`:
 - package_name: Name of the vulnerable package
 - installed_version: Currently installed version
